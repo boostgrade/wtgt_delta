@@ -26,6 +26,6 @@
 ## Артефакты
 
 - ТЗ: https://r3tam.notion.site/9f6faccae09f4b15bd04b20650d04341
-- Дизайн: https://www.figma.com/file/8wRDN0M82bIuRZS6Uomv8X/Where-to-go-today%3F?node-id=3%3A51
+- Дизайн: https://www.figma.com/file/CfYzsZrjZNZPA5xjbTztFc/Where-to-go-today%3F-v2?node-id=250%3A842
 - Настройка Google Sign In: https://youtu.be/Rl7I0VIrNDw
  

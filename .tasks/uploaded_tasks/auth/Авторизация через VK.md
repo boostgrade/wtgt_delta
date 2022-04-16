@@ -1,31 +1,5 @@
 ## Описание задачи
 
-В приложении использ
-**В данной задаче необходимо реализовать лишь верстку экрана**
-
-Экран должен быть реализован как StatefulWidget в файле /lib/src/features/auth/sign_in/sign_in_screen.dart .
-
-Все обработчики нажатий должны быть пустыми функциями с туду-комментарием вида:
-```dart
-    onPressed: () {
-        //TODO(any): обработать нажатие на кнопку 
-    }
-```
-
-Для блока соц.сетей использовать виджет `Placeholder` с заданными размерами.
-
-## Требования
-
-* [ ] Номер форматируется по заданной в требованиях маске(https://r3tam.notion.site/d5e5deb22ae448a483f7e07b0ef454a8)
-* [ ] Используется кнопка из базовых компонентов.
-* [ ] Стили и цвета используются из соответствующих классов, а не напрямую в коде.
-
-## Артефакты
-
-- ТЗ к полям: https://r3tam.notion.site/d5e5deb22ae448a483f7e07b0ef454a8
-- Дизайн: https://www.figma.com/file/8wRDN0M82bIuRZS6Uomv8X/Where-to-go-today%3F?node-id=3%3A51
-- Placeholder: https://api.flutter.dev/flutter/widgets/Placeholde## Описание задачи
-
 В приложении используются соц.сети как дополнительный способ авторизации.
 В данную задачу входит реализация всех сущностей и классов для входа через соц.сеть, а также кнопки, по которой 
 будет происходит авторизация.
@@ -53,7 +27,7 @@
 ## Артефакты
 
 - ТЗ: https://r3tam.notion.site/9f6faccae09f4b15bd04b20650d04341
-- Дизайн: https://www.figma.com/file/8wRDN0M82bIuRZS6Uomv8X/Where-to-go-today%3F?node-id=3%3A51
+- Дизайн: https://www.figma.com/file/CfYzsZrjZNZPA5xjbTztFc/Where-to-go-today%3F-v2?node-id=250%3A842
 
 
  
