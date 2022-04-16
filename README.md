@@ -1,7 +1,9 @@
 # where_to_go_today
 
 Требования к приложению: https://r3tam.notion.site/Where-To-Go-Today-d1a567616cf342dbaf9c8f00c6f1863d
+
 Дизайн: https://www.figma.com/file/CfYzsZrjZNZPA5xjbTztFc/Where-to-go-today%3F-v2?node-id=1%3A2
+
 АПИ: https://github.com/boostgrade/wtgt_api
 
 Если нет доступа - пишем ментору.
