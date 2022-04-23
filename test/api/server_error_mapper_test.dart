@@ -35,7 +35,7 @@ void main() {
       );
 
       test(
-        'Если пришла 400, провести парсинг тела. Если код внутри == 101, вернуть ImageIsSoLargeException',
+        'Если пришла 400, провести парсинг тела. Если код внутри == 101, вернуть ImageSoLargeException',
         () {
           final error = _makeDioError(
             400,
