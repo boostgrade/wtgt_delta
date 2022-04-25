@@ -1,4 +1,4 @@
-import '../error_handler.dart';
+import 'package:where_to_go_today/src/core/ui/errors_handling/error_handler.dart';
 
 /// Одна из реализаций [ErrorHandler]
 /// Содержит атрибут класса [ErrorScenario], который необходимо задать в конструкторе
