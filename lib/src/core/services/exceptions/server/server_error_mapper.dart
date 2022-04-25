@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:where_to_go_today/src/core/services/exceptions/server/server_exceptions.dart';
 
-import 'server_exceptions.dart';
 
 /// Сущность, которая преобразует ошибки сервера в ошибки приложенния
 /// для дальнейшей обработки.

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:where_to_go_today/src/core/ui/messages/types/message_type.dart';
 
-import 'message_type.dart';
 
 /// Сущность отвечающая за создание снекбаров.
 /// Все уведомления-снекбары расширяют этот абстрактый тип.

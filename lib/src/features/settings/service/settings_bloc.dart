@@ -1,10 +1,9 @@
 import 'package:bloc/bloc.dart';
+import 'package:where_to_go_today/src/features/settings/service/event/event.dart';
+import 'package:where_to_go_today/src/features/settings/service/repository/settings_repository.dart';
 import 'package:where_to_go_today/src/features/settings/service/state/state.dart';
 import 'package:flutter/material.dart';
 import 'package:where_to_go_today/src/core/services/base/throw_exception_bloc.dart';
-
-import 'event/event.dart';
-import 'repository/settings_repository.dart';
 
 /// A class that many Widgets can interact with to read user settings, update
 /// user settings, or listen to user settings changes.
@@ -13,7 +12,6 @@ import 'repository/settings_repository.dart';
 /// uses the SettingsService to store and retrieve user settings.
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState>
     with CanThrowExceptionBlocMixin {
-
   // Make SettingsService a private variable so it is not used directly.
   final SettingsRepository _settingsService;
 
@@ -56,5 +54,4 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState>
   Future<void> _loadSettings() async {
     _themeMode = await _settingsService.themeMode();
   }
-
 }
