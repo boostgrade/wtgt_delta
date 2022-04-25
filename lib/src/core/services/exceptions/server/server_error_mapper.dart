@@ -1,5 +1,5 @@
-import 'dart:convert';
 import 'package:dio/dio.dart';
+import 'package:where_to_go_today/src/core/services/data/services/dio_error_reponse/dio_error_reponse.dart';
 import 'package:where_to_go_today/src/core/services/exceptions/server/server_exceptions.dart';
 
 /// Сущность, которая преобразует ошибки сервера в ошибки приложенния
@@ -12,29 +12,24 @@ class ServerErrorMapper {
   static const int _notFound = 404;
 
   static Exception fromDioError(DioError error) {
-    final statusCode = error.response?.statusCode!;
-
     /// Для обработки остальных серверных ошибок
     /// нужно написать дополнительные блоки в условном выражении,
     /// предварительно создав классы исключений.
-    switch (statusCode) {
-      case _notFound:
-        return NotFoundException();
-      case _unauthorized:
-        return UnauthorizedException();
-      case _badRequest:
-        if (error.response != null) {
-          final code = json.decode(error.response.toString())['code'] as int;
-
-          switch (code) {
-            case 101:
-              return ImageSoLargeException();
-            default:
-              break;
+    if (error.response != null && error.response!.statusCode != null) {
+      switch (error.response!.statusCode) {
+        case _notFound:
+          return NotFoundException();
+        case _unauthorized:
+          return UnauthorizedException();
+        case _badRequest:
+          if (error.response!.data == null) {
+            return ServerErrorException();
           }
-        }
 
-        break;
+          return CustomServerException(
+            DioErrorResponse.fromJson(error.response!.data!),
+          );
+      }
     }
 
     /// Возвращается по-умолчанию для остальных ошибок
