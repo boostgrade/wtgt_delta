@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:where_to_go_today/src/core/services/data/services/dio_error_reponse/dio_error_reponse.dart';
+import 'package:where_to_go_today/src/core/services/data/dio_error_response/dio_error_reponse_dto.dart';
 import 'package:where_to_go_today/src/core/services/exceptions/server/server_exceptions.dart';
 
 /// Сущность, которая преобразует ошибки сервера в ошибки приложенния
@@ -27,7 +27,7 @@ class ServerErrorMapper {
           }
 
           return CustomServerException(
-            DioErrorResponse.fromJson(error.response!.data!),
+            DioErrorResponseDto.fromJson(error.response!.data!),
           );
       }
     }
