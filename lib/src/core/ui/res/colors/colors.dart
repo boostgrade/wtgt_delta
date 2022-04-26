@@ -13,7 +13,7 @@ abstract class ProjectColors {
   static const Color primaryColorDark = _darkYellow;
   static const Color activeColor = _green;
   static const Color textFieldColor = _brightGrey;
-  static const Color secondary = _dustyBlue;
+  static const Color secondary = _darkBlue;
   static const Color textColorPrimary = _black;
   static const Color textColorSecondary = _darkGrey;
   static const Color onError = _red;
@@ -22,6 +22,8 @@ abstract class ProjectColors {
   static const Color onSecondary = _white;
   static const Color onPrimary = _black;
   static const Color card = _green;
+  static const Color border = _lightGrey;
+  static const Color focusedBorder = _darkBlue;
 
 //TODO: Основная палитра
 
@@ -36,4 +38,6 @@ abstract class ProjectColors {
   static const Color _brightYellow = Color(0xFFFFD600);
   static const Color _darkYellow = Color(0xFFC7B800);
   static const Color _red = Color(0xFFE33247);
+  static const Color _lightGrey = Color(0xFFD5D8E5);
+  static const Color _darkBlue = Color(0xFF1310BE);
 }

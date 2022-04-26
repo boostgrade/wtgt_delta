@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:where_to_go_today/src/core/ui/res/colors/colors.dart';
 
@@ -13,6 +12,7 @@ class WtgtTheme {
       dividerColor: ProjectColors.divider,
       disabledColor: ProjectColors.disabledColor,
       backgroundColor: ProjectColors.background,
+      cardColor: ProjectColors.card,
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith<Color>(
@@ -44,6 +44,10 @@ class WtgtTheme {
           ),
         ),
       ),
+      inputDecorationTheme: WtgtInputDecoration.lightInputDecorationTheme,
+      textSelectionTheme: const TextSelectionThemeData(
+        cursorColor: ProjectColors.focusedBorder,
+      ),
     );
   }
 }
@@ -74,6 +78,10 @@ class WtgtTextStyles {
           fontSize: 24.0,
           fontWeight: FontWeight.w600,
         ),
+        subtitle1: TextStyle(
+          fontSize: 16.0,
+          fontWeight: FontWeight.w500,
+        ),
         subtitle2: TextStyle(
           fontSize: 16.0,
           fontWeight: FontWeight.w500,
@@ -98,6 +106,56 @@ class WtgtTextStyles {
         overline: TextStyle(
           fontSize: 16.0,
           fontWeight: FontWeight.w600,
+        ),
+      );
+}
+
+class WtgtInputDecoration {
+  static InputDecorationTheme get lightInputDecorationTheme =>
+      const InputDecorationTheme(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(6.0),
+          ),
+          borderSide: BorderSide(
+            width: 1.0,
+            color: ProjectColors.border,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(6.0),
+          ),
+          borderSide: BorderSide(
+            width: 1.0,
+            color: ProjectColors.focusedBorder,
+          ),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(6.0),
+          ),
+          borderSide: BorderSide(
+            width: 1.0,
+            color: ProjectColors.onError,
+          ),
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(6.0),
+          ),
+          borderSide: BorderSide(
+            width: 1.0,
+            color: ProjectColors.border,
+          ),
+        ),
+        errorStyle: TextStyle(
+          fontSize: 12.0,
+          fontWeight: FontWeight.w600,
+        ),
+        labelStyle: TextStyle(
+          fontSize: 12.0,
+          fontWeight: FontWeight.w500,
         ),
       );
 }
