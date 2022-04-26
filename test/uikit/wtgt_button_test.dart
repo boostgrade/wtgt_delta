@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
 
@@ -15,8 +16,14 @@ void main() {
             label: text,
           );
 
-          await tester.pumpWidget(btn);
-          final normalFinder = find.text(text);
+          await tester.pumpWidget(
+            const MaterialApp(
+              home: Scaffold(
+                body: btn,
+              ),
+            ),
+          );
+          final normalFinder = find.text(text.toUpperCase());
 
           expect(normalFinder, findsOneWidget);
         },
@@ -33,10 +40,41 @@ void main() {
             status: Status.loading,
           );
 
-          await tester.pumpWidget(btn);
+          await tester.pumpWidget(
+            const MaterialApp(
+              home: Scaffold(
+                body: btn,
+              ),
+            ),
+          );
+
           final normalFinder = find.text(text);
 
           expect(normalFinder, findsNothing);
+        },
+      );
+      testWidgets(
+        'Если статус кнопки Status.disable - должны увидеть текст',
+        (tester) async {
+          const text = 'hello!';
+
+          const btn = WtgtButton(
+            onPressed: null,
+            label: text,
+            status: Status.disable,
+          );
+
+          await tester.pumpWidget(
+            const MaterialApp(
+              home: Scaffold(
+                body: btn,
+              ),
+            ),
+          );
+
+          final normalFinder = find.text(text.toUpperCase());
+
+          expect(normalFinder, findsOneWidget);
         },
       );
     },
