@@ -54,6 +54,8 @@ class WtgtTheme {
 
 class WtgtColorScheme {
   static ColorScheme get lightColorScheme => const ColorScheme(
+        primaryVariant: ProjectColors.primary,
+        secondaryVariant: ProjectColors.secondary,
         primary: ProjectColors.primary,
         surface: ProjectColors.surface,
         secondary: ProjectColors.secondary,

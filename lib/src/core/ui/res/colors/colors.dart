@@ -33,7 +33,6 @@ abstract class ProjectColors {
   static const Color _darkGrey = Color(0xFF415170);
   static const Color _green = Color(0xFFA9D899);
   static const Color _brightGrey = Color(0xFFEBEDF0);
-  static const Color _dustyBlue = Color(0xFFA8DADC);
   static const Color _black = Color(0xFF000000);
   static const Color _brightYellow = Color(0xFFFFD600);
   static const Color _darkYellow = Color(0xFFC7B800);
