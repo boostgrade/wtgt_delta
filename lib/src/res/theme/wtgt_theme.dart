@@ -89,11 +89,11 @@ class WtgtTextStyles {
           fontWeight: FontWeight.w500,
         ),
         bodyText1: TextStyle(
-          fontSize: 20.0,
-          fontWeight: FontWeight.w500,
+          fontSize: 16.0,
+          fontWeight: FontWeight.w400,
         ),
         bodyText2: TextStyle(
-          fontSize: 16.0,
+          fontSize: 18.0,
           fontWeight: FontWeight.w400,
         ),
         caption: TextStyle(
@@ -113,8 +113,7 @@ class WtgtTextStyles {
 }
 
 class WtgtInputDecoration {
-  static InputDecorationTheme get lightInputDecorationTheme =>
-      const InputDecorationTheme(
+  static InputDecorationTheme get lightInputDecorationTheme => const InputDecorationTheme(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(6.0),
