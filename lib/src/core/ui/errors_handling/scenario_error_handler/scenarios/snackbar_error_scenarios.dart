@@ -1,8 +1,7 @@
 import 'package:where_to_go_today/src/core/services/exceptions/server/server_exceptions.dart';
+import 'package:where_to_go_today/src/core/ui/errors_handling/scenario_error_handler/scenario_error_handler.dart';
 import 'package:where_to_go_today/src/core/ui/messages/message_controller.dart';
 import 'package:where_to_go_today/src/core/ui/messages/types/error_snackbar.dart';
-
-import '../scenario_error_handler.dart';
 
 /// Реализация сценария, при котором при каждой ошибке всплывает снекбар
 class SnackBarErrorScenarios implements ErrorScenario {
