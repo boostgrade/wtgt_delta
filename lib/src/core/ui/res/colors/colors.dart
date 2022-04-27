@@ -13,7 +13,7 @@ abstract class ProjectColors {
   static const Color textFieldColor = _brightGrey;
   static const Color secondaryColor = _dustyBlue;
   static const Color textColorPrimary = _black;
-  static const Color buttonColor = _yellow;
+  static const Color flatButtonColor = _yellow;
 
 //TODO: Основная палитра
 
