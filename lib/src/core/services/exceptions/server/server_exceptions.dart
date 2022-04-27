@@ -1,4 +1,4 @@
-import 'package:where_to_go_today/src/core/domain/entities/dio_error_response/dio_error_response.dart';
+import 'package:where_to_go_today/src/core/services/data/dio_error_response/dio_error_reponse_dto.dart';
 
 /// Для преобразования ошибок сервера в ошибки приложенния,
 /// необходимо создать соответсвующие классы,
@@ -7,12 +7,14 @@ import 'package:where_to_go_today/src/core/domain/entities/dio_error_response/di
 
 /// Общий класс ошибок, с фабричным методом обработки ошибок по коду в response'e
 abstract class CustomServerException implements Exception {
-  factory CustomServerException(DioErrorResponse response) {
-    switch (response.code) {
-      case 101:
-        return ImageSoLargeException();
-      default:
-        break;
+  factory CustomServerException(DioErrorResponseDto response) {
+    if (response.code != null) {
+      switch (response.code) {
+        case 101:
+          return ImageSoLargeException();
+        default:
+          break;
+      }
     }
 
     return ServerErrorException();

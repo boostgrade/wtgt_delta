@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:where_to_go_today/src/core/domain/mappers/dio_error_response/dio_error_response_mappers.dart';
 import 'package:where_to_go_today/src/core/services/data/dio_error_response/dio_error_reponse_dto.dart';
 import 'package:where_to_go_today/src/core/services/exceptions/server/server_exceptions.dart';
 
@@ -28,9 +27,7 @@ class ServerErrorMapper {
           }
 
           return CustomServerException(
-            toDioErrorResponse(
-              DioErrorResponseDto.fromJson(error.response!.data!),
-            ),
+            DioErrorResponseDto.fromJson(error.response!.data!),
           );
       }
     }
