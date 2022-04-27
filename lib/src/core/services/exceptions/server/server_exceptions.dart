@@ -10,7 +10,7 @@ abstract class CustomServerException implements Exception {
   factory CustomServerException(DioErrorResponseDto response) {
     if (response.code != null) {
       switch (response.code) {
-        case 101:
+        case ImageSoLargeException.code:
           return ImageSoLargeException();
         default:
           break;
@@ -28,7 +28,9 @@ class ServerErrorException implements CustomServerException {}
 class NotFoundException implements CustomServerException {}
 
 /// Ошибка 400 с кодом code == 101
-class ImageSoLargeException implements CustomServerException {}
+class ImageSoLargeException implements CustomServerException {
+  static const code = 101;
+}
 
 /// Ошибка при протухшем токене
 class UnauthorizedException implements CustomServerException {}
