@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:where_to_go_today/src/core/ui/res/colors/colors.dart';
 
+/// Статус базовой кнопки
+/// [active] - стандартное состояние кнопки,
+/// [disable] - заблокировать нажатие кнопки,
+/// [loading] - ожидание callback'а функции и показывание лоадера
 enum Status {
+  active,
   disable,
   loading,
 }
 
-/// Виджет, базовой кнопки
-/// Входные параметры: onPressed - callback функции, label - заголовок кнопки,
-/// status - состояние кнопки(null - обычное состояние кнопки, disable - кнопка
-/// неактивна, loading - показать лоадер)
-
+/// Базовая кнопка
+/// [onPressed] - callback функции,
+/// [label] - заголовок кнопки,
+/// [status] - состояние кнопки
 class WtgtButton extends StatelessWidget {
-  final void Function()? onPressed;
+  final VoidCallback? onPressed;
   final String label;
   final Status? status;
 
@@ -27,7 +31,7 @@ class WtgtButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ButtonStyle(
-        fixedSize: MaterialStateProperty.all(const Size.fromHeight(60)),
+        fixedSize: MaterialStateProperty.all(const Size.fromHeight(52)),
         shape: MaterialStateProperty.all(
           const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
@@ -38,13 +42,17 @@ class WtgtButton extends StatelessWidget {
         backgroundColor: MaterialStateProperty.resolveWith(
           (_) {
             return status == Status.disable
-                ? ProjectColors.buttonColor.withOpacity(0.5)
-                : ProjectColors.buttonColor;
+                ? ProjectColors.flatButtonColor.withOpacity(0.5)
+                : ProjectColors.flatButtonColor;
           },
         ),
-        padding: MaterialStateProperty.all(
-          const EdgeInsets.all(8.0),
-        ),
+        padding: status == Status.loading
+            ? MaterialStateProperty.all(
+                const EdgeInsets.all(14.0),
+              )
+            : MaterialStateProperty.all(
+                const EdgeInsets.all(16.0),
+              ),
       ),
       onPressed: status == Status.disable ? null : onPressed,
       child: status == Status.loading
@@ -58,7 +66,9 @@ class WtgtButton extends StatelessWidget {
           : Text(
               label.toUpperCase(),
               style: TextStyle(
-                color: status == Status.disable ? ProjectColors.disabledColor : ProjectColors.textColorPrimary,
+                color: status == Status.disable
+                    ? ProjectColors.disabledColor
+                    : ProjectColors.textColorPrimary,
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
               ),
