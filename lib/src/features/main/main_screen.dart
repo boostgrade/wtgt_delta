@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import 'main_screen_vm.dart';
+import 'package:where_to_go_today/src/features/main/main_screen_vm.dart';
 
 /// Глвный экран с табами
 class MainScreen extends StatelessWidget {
-
   final MainScreenVm vm;
 
   static const double _labelSize = 12.0;
@@ -39,7 +37,9 @@ class MainScreen extends StatelessWidget {
             // TODO: поменять иконки из дизайна, когда они появятся
             BottomNavigationBarItem(
               icon: const Icon(Icons.search),
-              activeIcon: const Icon(Icons.search,),
+              activeIcon: const Icon(
+                Icons.search,
+              ),
               label: AppLocalizations.of(context)!.placesTabName,
             ),
             BottomNavigationBarItem(
