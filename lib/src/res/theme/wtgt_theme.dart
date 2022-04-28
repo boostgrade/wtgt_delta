@@ -1,43 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:where_to_go_today/src/core/ui/res/colors/colors.dart';
 
+/// Тема цветовая приложения
+/// [lightTheme] геттер для светлой темы
 class WtgtTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       fontFamily: 'Montserrat',
       textTheme: WtgtTextStyles.lightTextStyle,
       colorScheme: WtgtColorScheme.lightColorScheme,
-      primaryColorDark: ProjectColors.primaryColorDark,
-      shadowColor: ProjectColors.shadow,
-      dividerColor: ProjectColors.divider,
-      disabledColor: ProjectColors.disabledColor,
-      backgroundColor: ProjectColors.background,
-      cardColor: ProjectColors.card,
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-              if (states.contains(MaterialState.disabled)) {
-                return ProjectColors.primary.withOpacity(0.5);
-              }
-
-              return ProjectColors.primary;
-            },
-          ),
-          shape: MaterialStateProperty.all(
-            const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(12.0),
-              ),
-            ),
-          ),
-          minimumSize: MaterialStateProperty.all(
-            const Size(double.infinity, 52.0),
-          ),
-        ),
-      ),
+      primaryColorDark: AppColors.primaryDark,
+      shadowColor: AppColors.shadow,
+      dividerColor: AppColors.divider,
+      disabledColor: AppColors.disabled,
+      backgroundColor: AppColors.background,
+      cardColor: AppColors.card,
       cardTheme: const CardTheme(
-        color: ProjectColors.card,
+        color: AppColors.card,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(12.0),
@@ -46,7 +25,7 @@ class WtgtTheme {
       ),
       inputDecorationTheme: WtgtInputDecoration.lightInputDecorationTheme,
       textSelectionTheme: const TextSelectionThemeData(
-        cursorColor: ProjectColors.focusedBorder,
+        cursorColor: AppColors.focusedBorder,
       ),
     );
   }
@@ -54,18 +33,18 @@ class WtgtTheme {
 
 class WtgtColorScheme {
   static ColorScheme get lightColorScheme => const ColorScheme(
-        primaryVariant: ProjectColors.primary,
-        secondaryVariant: ProjectColors.secondary,
-        primary: ProjectColors.primary,
-        surface: ProjectColors.surface,
-        secondary: ProjectColors.secondary,
-        background: ProjectColors.background,
-        onPrimary: ProjectColors.onPrimary,
-        onSurface: ProjectColors.onSurface,
-        onBackground: ProjectColors.onBackground,
-        onSecondary: ProjectColors.onSecondary,
-        error: ProjectColors.colorError,
-        onError: ProjectColors.onError,
+        primaryVariant: AppColors.primary,
+        secondaryVariant: AppColors.secondary,
+        primary: AppColors.primary,
+        surface: AppColors.surface,
+        secondary: AppColors.secondary,
+        background: AppColors.background,
+        onPrimary: AppColors.onPrimary,
+        onSurface: AppColors.onSurface,
+        onBackground: AppColors.onBackground,
+        onSecondary: AppColors.onSecondary,
+        error: AppColors.error,
+        onError: AppColors.onError,
         brightness: Brightness.light,
       );
 }
@@ -120,7 +99,7 @@ class WtgtInputDecoration {
           ),
           borderSide: BorderSide(
             width: 1.0,
-            color: ProjectColors.border,
+            color: AppColors.border,
           ),
         ),
         focusedBorder: OutlineInputBorder(
@@ -129,7 +108,7 @@ class WtgtInputDecoration {
           ),
           borderSide: BorderSide(
             width: 1.0,
-            color: ProjectColors.focusedBorder,
+            color: AppColors.focusedBorder,
           ),
         ),
         errorBorder: OutlineInputBorder(
@@ -138,7 +117,7 @@ class WtgtInputDecoration {
           ),
           borderSide: BorderSide(
             width: 1.0,
-            color: ProjectColors.onError,
+            color: AppColors.onError,
           ),
         ),
         disabledBorder: OutlineInputBorder(
@@ -147,7 +126,7 @@ class WtgtInputDecoration {
           ),
           borderSide: BorderSide(
             width: 1.0,
-            color: ProjectColors.border,
+            color: AppColors.border,
           ),
         ),
         errorStyle: TextStyle(
