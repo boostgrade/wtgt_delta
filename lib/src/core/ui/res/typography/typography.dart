@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 /// Описание текстовых стилей приложения
 abstract class AppTypography {
-
-  static final body1 =  _font400.copyWith(
+  static final body1 = _font400.copyWith(
+    //DONE -------
     fontSize: 16,
     height: 20 / 16,
   );
@@ -14,16 +14,19 @@ abstract class AppTypography {
   );
 
   static final caption = _font400.copyWith(
+    //DONE
     fontSize: 16,
     height: 20 / 16,
   );
 
   static final body2 = _font500.copyWith(
+    //DONE
     fontSize: 18,
     height: 20 / 18,
   );
 
   static final subtitle1 = _font500.copyWith(
+    //DONE
     fontSize: 16,
     height: 20 / 16,
   );
@@ -34,11 +37,13 @@ abstract class AppTypography {
   );
 
   static final headline2 = _font600.copyWith(
+    //DONE
     fontSize: 24,
     height: 32 / 24,
   );
 
   static final button = _font600.copyWith(
+    //DONE
     fontSize: 16,
     height: 20 / 16,
   );

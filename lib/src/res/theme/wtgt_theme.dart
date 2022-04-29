@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:where_to_go_today/src/core/ui/res/colors/colors.dart';
+import 'package:where_to_go_today/src/core/ui/res/typography/typography.dart';
 
 /// Тема цветовая приложения
 /// [lightTheme] геттер для светлой темы
@@ -50,44 +51,18 @@ class WtgtColorScheme {
 }
 
 class WtgtTextStyles {
-  static TextTheme get lightTextStyle => const TextTheme(
-        headline1: TextStyle(
-          fontSize: 20.0,
-          fontWeight: FontWeight.w600,
-        ),
-        headline2: TextStyle(
-          fontSize: 24.0,
-          fontWeight: FontWeight.w600,
-        ),
-        subtitle1: TextStyle(
-          fontSize: 16.0,
-          fontWeight: FontWeight.w500,
-        ),
-        subtitle2: TextStyle(
-          fontSize: 16.0,
-          fontWeight: FontWeight.w500,
-        ),
-        bodyText1: TextStyle(
-          fontSize: 16.0,
-          fontWeight: FontWeight.w400,
-        ),
-        bodyText2: TextStyle(
-          fontSize: 18.0,
-          fontWeight: FontWeight.w400,
-        ),
-        caption: TextStyle(
-          fontSize: 16.0,
-          fontWeight: FontWeight.w400,
-        ),
-        button: TextStyle(
-          fontSize: 16.0,
-          fontWeight: FontWeight.w600,
-          letterSpacing: 2.0,
-        ),
-        overline: TextStyle(
-          fontSize: 16.0,
-          fontWeight: FontWeight.w600,
-        ),
+  static TextTheme get lightTextStyle => TextTheme(
+        headlineMedium: AppTypography.headline2,
+        headlineSmall: AppTypography.promoBold,
+        titleLarge: AppTypography.newLargeTitle,
+        titleMedium: AppTypography.headline2,
+        titleSmall: AppTypography.newSmallTitle,
+        labelLarge: AppTypography.label,
+        labelMedium: AppTypography.caption,
+        labelSmall: AppTypography.newCaption,
+        bodyLarge: AppTypography.body2,
+        bodyMedium: AppTypography.body1,
+        bodySmall: AppTypography.button,
       );
 }
 
