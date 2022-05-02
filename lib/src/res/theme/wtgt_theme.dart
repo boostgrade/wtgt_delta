@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:where_to_go_today/src/core/ui/res/colors/colors.dart';
 import 'package:where_to_go_today/src/core/ui/res/typography/typography.dart';
 
+
 /// Тема цветовая приложения
 /// [lightTheme] геттер для светлой темы
 class WtgtTheme {
