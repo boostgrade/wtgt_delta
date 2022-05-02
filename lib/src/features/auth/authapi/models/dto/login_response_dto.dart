@@ -1,6 +1,6 @@
 import 'package:where_to_go_today/src/features/auth/authapi/models/dto/token_dto.dart';
 import 'package:where_to_go_today/src/features/auth/authapi/models/dto/user_dto.dart';
-import 'package:where_to_go_today/src/features/auth/authapi/models/Login.dart';
+import 'package:where_to_go_today/src/features/auth/authapi/models/login.dart';
 import 'package:where_to_go_today/src/features/auth/authapi/models/response/login_response.dart';
 
 class LoginResponseDto extends Login {
