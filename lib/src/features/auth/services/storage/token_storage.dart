@@ -7,15 +7,15 @@ import 'package:hive/hive.dart';
 class TokenStorage {
   static const boxName = 'tokenBox';
 
-  final Box box;
-
   static const _key = 'token';
 
-  TokenStorage() : box = Hive.box<String>(boxName);
+  final Box _box;
 
-  String? read() => box.get(_key);
+  TokenStorage() : _box = Hive.box<String>(boxName);
 
-  void write(String token) => box.put(_key, token);
+  String? read() => _box.get(_key);
 
-  void delete() => box.delete(_key);
+  void write(String token) => _box.put(_key, token);
+
+  void delete() => _box.delete(_key);
 }
