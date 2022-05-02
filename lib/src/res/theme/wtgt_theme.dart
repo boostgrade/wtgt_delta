@@ -35,8 +35,8 @@ class WtgtTheme {
 
 class WtgtColorScheme {
   static ColorScheme get lightColorScheme => const ColorScheme(
-        primaryVariant: AppColors.primary,
-        secondaryVariant: AppColors.secondary,
+        primaryContainer: AppColors.primary,
+        secondaryContainer: AppColors.secondary,
         primary: AppColors.primary,
         surface: AppColors.surface,
         secondary: AppColors.secondary,
