@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'message_controller.dart';
-import 'types/message_type.dart';
+import 'package:where_to_go_today/src/core/ui/messages/message_controller.dart';
+import 'package:where_to_go_today/src/core/ui/messages/types/message_type.dart';
 
 /// Эта сущность отвечает только за показ сообщений.
 /// Для этого внутри создается ключ, который устанваливается в 

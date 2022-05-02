@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-
-import 'app_dependency.dart';
+import 'package:where_to_go_today/src/di/app_dependency.dart';
 
 class AppProvider extends StatelessWidget {
   final Widget child;
