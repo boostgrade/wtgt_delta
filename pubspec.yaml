@@ -45,6 +45,9 @@ dependencies:
   freezed_annotation: ^0.15.0
   mocktail: ^0.2.0
 
+  #localstorage
+  hive: ^2.1.0
+
 
 dev_dependencies:
   flutter_test:
