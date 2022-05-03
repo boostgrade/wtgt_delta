@@ -42,8 +42,8 @@ class WtgtButton extends StatelessWidget {
         backgroundColor: MaterialStateProperty.resolveWith(
           (_) {
             return status == Status.disable
-                ? ProjectColors.flatButtonColor.withOpacity(0.5)
-                : ProjectColors.flatButtonColor;
+                ? AppColors.primary.withOpacity(0.5)
+                : AppColors.primary;
           },
         ),
         padding: status == Status.loading
@@ -60,15 +60,15 @@ class WtgtButton extends StatelessWidget {
               height: 24,
               width: 24,
               child: CircularProgressIndicator(
-                color: ProjectColors.textColorPrimary,
+                color: AppColors.textPrimary,
               ),
             )
           : Text(
               label.toUpperCase(),
               style: TextStyle(
                 color: status == Status.disable
-                    ? ProjectColors.disabledColor
-                    : ProjectColors.textColorPrimary,
+                    ? AppColors.disabled
+                    : AppColors.textPrimary,
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
               ),
