@@ -13,13 +13,16 @@ abstract class CustomServerException implements Exception {
         case ImageSoLargeException.code:
           return ImageSoLargeException();
         default:
-          break;
+          return UnexpectedServerException();
       }
     }
 
     return ServerErrorException();
   }
 }
+
+/// Неизвестная серверная ошибка
+class UnexpectedServerException implements CustomServerException {}
 
 /// Серверная ошибка по-умолчанию
 class ServerErrorException implements CustomServerException {}

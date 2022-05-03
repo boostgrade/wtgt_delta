@@ -3,6 +3,8 @@ import 'package:json_annotation/json_annotation.dart';
 part 'dio_error_reponse_dto.g.dart';
 
 /// DTO серверной ошибки
+/// [code] - код ошибки
+/// [message] - описание ошибки
 @JsonSerializable()
 class DioErrorResponseDto {
   final int? code;

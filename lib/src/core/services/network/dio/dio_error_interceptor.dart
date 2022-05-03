@@ -10,7 +10,7 @@ class DioErrorInterceptor extends Interceptor {
   void onError(DioError err, ErrorInterceptorHandler handler) {
     final exception = ServerErrorMapper.fromDioError(err);
     if (exception is NotFoundException) {
-      throw exception;
+      //TODO: обработка исключения NotFoundException
     } else if (exception is UnauthorizedException) {
       //TODO(Sanlovty): необходимость попытки перезапросить токен, и вывести сообщение в консоль.
       debugPrint('Необходимо перезапросить токен');
