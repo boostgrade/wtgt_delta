@@ -12,6 +12,7 @@ void main() {
           const text = 'hello!';
 
           const btn = WtgtButton(
+            type: ButtonType.active,
             onPressed: null,
             label: text,
           );
@@ -37,7 +38,7 @@ void main() {
           const btn = WtgtButton(
             onPressed: null,
             label: text,
-            status: Status.loading,
+            type: ButtonType.loading,
           );
 
           await tester.pumpWidget(
@@ -61,7 +62,7 @@ void main() {
           const btn = WtgtButton(
             onPressed: null,
             label: text,
-            status: Status.disable,
+            type: ButtonType.active,
           );
 
           await tester.pumpWidget(

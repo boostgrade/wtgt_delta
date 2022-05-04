@@ -3,35 +3,37 @@ import 'package:where_to_go_today/src/core/ui/res/colors/colors.dart';
 
 /// Статус базовой кнопки
 /// [active] - стандартное состояние кнопки,
-/// [disable] - заблокировать нажатие кнопки,
 /// [loading] - ожидание callback'а функции и показывание лоадера
-enum Status {
+enum ButtonType {
   active,
-  disable,
   loading,
 }
 
 /// Базовая кнопка
-/// [onPressed] - callback функции,
+/// [onPressed] (необязательный параметр) - callback функции,
+/// Если [onPressed] == null, то кнопка становится disabled
 /// [label] - заголовок кнопки,
-/// [status] - состояние кнопки
+/// [type] - состояние кнопки,
+/// [height] (необязательный параметр) - высота кнопки
 class WtgtButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final String label;
-  final Status? status;
+  final ButtonType type;
+  final double height;
 
   const WtgtButton({
     Key? key,
     this.onPressed,
-    this.status,
+    required this.type,
     required this.label,
+    this.height = 52.0,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ButtonStyle(
-        fixedSize: MaterialStateProperty.all(const Size.fromHeight(52)),
+        fixedSize: MaterialStateProperty.all(Size.fromHeight(height)),
         shape: MaterialStateProperty.all(
           const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
@@ -41,36 +43,33 @@ class WtgtButton extends StatelessWidget {
         ),
         backgroundColor: MaterialStateProperty.resolveWith(
           (_) {
-            return status == Status.disable
+            return onPressed == null
                 ? AppColors.primary.withOpacity(0.5)
                 : AppColors.primary;
           },
         ),
-        padding: status == Status.loading
-            ? MaterialStateProperty.all(
-                const EdgeInsets.all(14.0),
-              )
-            : MaterialStateProperty.all(
-                const EdgeInsets.all(16.0),
-              ),
       ),
-      onPressed: status == Status.disable ? null : onPressed,
-      child: status == Status.loading
-          ? const SizedBox(
-              height: 24,
-              width: 24,
-              child: CircularProgressIndicator(
-                color: AppColors.textPrimary,
+      onPressed: onPressed,
+      child: type == ButtonType.loading
+          ? const Center(
+              child: SizedBox(
+                height: 24,
+                width: 24,
+                child: CircularProgressIndicator(
+                  color: AppColors.textPrimary,
+                ),
               ),
             )
-          : Text(
-              label.toUpperCase(),
-              style: TextStyle(
-                color: status == Status.disable
-                    ? AppColors.disabled
-                    : AppColors.textPrimary,
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
+          : Center(
+              child: Text(
+                label.toUpperCase(),
+                style: TextStyle(
+                  color: onPressed == null
+                      ? AppColors.disabled
+                      : AppColors.textPrimary,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
             ),
     );
