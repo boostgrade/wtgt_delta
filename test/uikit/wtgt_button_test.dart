@@ -7,27 +7,75 @@ void main() {
     'WtgtButton tests',
     () {
       testWidgets(
-        'Если передаем loading==true должны увидеть лоадер',
+        'При обычном состоянии кнопки, мы должны увидеть текст',
         (tester) async {
           const text = 'hello!';
-          bool loading = false;
 
-          final btn = WtgtButton(
-            onTap: null,
-            child: const Text(text),
-            loading: loading,
+          const btn = WtgtButton(
+            type: ButtonType.active,
+            onPressed: null,
+            label: text,
           );
 
-          await tester.pumpWidget(btn);
-          final normalFinder = find.text(text);
+          await tester.pumpWidget(
+            const MaterialApp(
+              home: Scaffold(
+                body: btn,
+              ),
+            ),
+          );
+          final normalFinder = find.text(text.toUpperCase());
 
           expect(normalFinder, findsOneWidget);
+        },
+      );
 
-          loading = true;
+      testWidgets(
+        'Если статус кнопки Status.loading - должны увидеть лоадер',
+        (tester) async {
+          const text = 'hello!';
 
-          await tester.pump();
+          const btn = WtgtButton(
+            onPressed: null,
+            label: text,
+            type: ButtonType.loading,
+          );
+
+          await tester.pumpWidget(
+            const MaterialApp(
+              home: Scaffold(
+                body: btn,
+              ),
+            ),
+          );
+
+          final normalFinder = find.text(text);
 
           expect(normalFinder, findsNothing);
+        },
+      );
+      testWidgets(
+        'Если статус кнопки Status.disable - должны увидеть текст',
+        (tester) async {
+          const text = 'hello!';
+
+          const btn = WtgtButton(
+            onPressed: null,
+            label: text,
+            type: ButtonType.active,
+          );
+
+          await tester.pumpWidget(
+            const MaterialApp(
+              home: Scaffold(
+                body: btn,
+              ),
+            ),
+          );
+
+          final normalFinder = find.text(text.toUpperCase());
+
+          expect(normalFinder, findsOneWidget);
         },
       );
     },
