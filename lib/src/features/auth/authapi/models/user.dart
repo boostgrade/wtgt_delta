@@ -1,4 +1,6 @@
-abstract class User {
+import 'package:where_to_go_today/src/features/auth/authapi/models/response/user_response.dart';
+
+class User {
   final int id;
   final String name;
   final String lastName;
@@ -12,4 +14,12 @@ abstract class User {
     required this.phone,
     required this.birthDate,
   });
+
+  factory User.fromResponseModel(UserResponse userResponse) => User(
+        id: userResponse.id,
+        name: userResponse.name,
+        lastName: userResponse.lastName,
+        phone: userResponse.phone,
+        birthDate: DateTime.parse(userResponse.birthDate),
+      );
 }

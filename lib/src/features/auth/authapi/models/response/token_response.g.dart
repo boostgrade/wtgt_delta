@@ -18,3 +18,9 @@ TokenResponse _$TokenResponseFromJson(Map<String, dynamic> json) =>
         return val;
       },
     );
+
+Map<String, dynamic> _$TokenResponseToJson(TokenResponse instance) =>
+    <String, dynamic>{
+      'token': instance.token,
+      'refreshToken': instance.refreshToken,
+    };

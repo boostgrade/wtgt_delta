@@ -1,4 +1,4 @@
-import 'package:where_to_go_today/src/features/auth/authapi/models/dto/login_response_dto.dart';
+import 'package:where_to_go_today/src/features/auth/authapi/models/login.dart';
 import 'package:where_to_go_today/src/features/auth/authapi/models/requests/apple_login_request.dart';
 import 'package:where_to_go_today/src/features/auth/authapi/models/requests/google_login_request.dart';
 import 'package:where_to_go_today/src/features/auth/authapi/models/requests/meta_login_request.dart';
@@ -14,38 +14,38 @@ class AuthRepositoryImpl extends AuthRepository {
   AuthRepositoryImpl(this.authApi);
 
   @override
-  Future<LoginResponseDto> loginApple(AppleLoginRequest appleLoginRequest) async {
+  Future<Login> loginApple(AppleLoginRequest appleLoginRequest) async {
     final loginResponse = await authApi.loginApple(appleLoginRequest);
 
-    return LoginResponseDto.fromResponseModel(loginResponse);
+    return Login.fromResponseModel(loginResponse);
   }
 
   @override
-  Future<LoginResponseDto> loginGoogle(GoogleLoginRequest googleLoginRequest) async {
-     final loginResponse = await authApi.loginGoogle(googleLoginRequest);
+  Future<Login> loginGoogle(GoogleLoginRequest googleLoginRequest) async {
+    final loginResponse = await authApi.loginGoogle(googleLoginRequest);
 
-    return LoginResponseDto.fromResponseModel(loginResponse);
+    return Login.fromResponseModel(loginResponse);
   }
 
   @override
-  Future<LoginResponseDto> loginMeta(MetaLoginRequest metaLoginRequest) async {
+  Future<Login> loginMeta(MetaLoginRequest metaLoginRequest) async {
     final loginResponse = await authApi.loginMeta(metaLoginRequest);
 
-    return LoginResponseDto.fromResponseModel(loginResponse);
+    return Login.fromResponseModel(loginResponse);
   }
 
   @override
-  Future<LoginResponseDto> loginPhone(PhoneLoginRequest phoneLoginRequest) async {
+  Future<Login> loginPhone(PhoneLoginRequest phoneLoginRequest) async {
     final loginResponse = await authApi.loginPhone(phoneLoginRequest);
 
-    return LoginResponseDto.fromResponseModel(loginResponse);
+    return Login.fromResponseModel(loginResponse);
   }
 
   @override
-  Future<LoginResponseDto> loginVk(VkLoginRequest vkLoginRequest) async {
+  Future<Login> loginVk(VkLoginRequest vkLoginRequest) async {
     final loginResponse = await authApi.loginVk(vkLoginRequest);
 
-    return LoginResponseDto.fromResponseModel(loginResponse);
+    return Login.fromResponseModel(loginResponse);
   }
 
   @override
