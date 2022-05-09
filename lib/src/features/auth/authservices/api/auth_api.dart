@@ -26,7 +26,7 @@ abstract class AuthApi {
   @POST('/login/apple')
   Future<LoginResponse> loginApple(@Body() AppleLoginRequest appleLoginRequest);
 
-  @POST('/login/apple')
+  @POST('/login/google')
   Future<LoginResponse> loginGoogle(@Body() GoogleLoginRequest googleLoginRequest);
 
   @POST('/register')
