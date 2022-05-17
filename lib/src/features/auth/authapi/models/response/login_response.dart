@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:where_to_go_today/src/features/auth/authapi/models/login.dart';
 import 'package:where_to_go_today/src/features/auth/authapi/models/response/token_response.dart';
 import 'package:where_to_go_today/src/features/auth/authapi/models/response/user_response.dart';
 
@@ -16,4 +17,11 @@ class LoginResponse {
 
   factory LoginResponse.fromJson(Map<String, dynamic> json) =>
       _$LoginResponseFromJson(json);
+
+  static Login toDomain(LoginResponse loginResponse) {
+    return Login(
+      user: UserResponse.toDomain(loginResponse.user),
+      token: TokenResponse.toDomain(loginResponse.token),
+    );
+  }
 }

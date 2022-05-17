@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:where_to_go_today/src/features/auth/authapi/models/login.dart';
 import 'package:where_to_go_today/src/features/auth/authapi/models/requests/apple_login_request.dart';
 import 'package:where_to_go_today/src/features/auth/authapi/models/requests/google_login_request.dart';
 import 'package:where_to_go_today/src/features/auth/authapi/models/requests/meta_login_request.dart';
@@ -39,7 +38,7 @@ void main() {
     jsonDecode(loginJsonResponse),
   );
 
-  final login = Login.fromResponseModel(loginResponse);
+  final login = LoginResponse.toDomain(loginResponse);
 
   const appleLoginRequest = AppleLoginRequest(token: '');
   const googleLoginRequest = GoogleLoginRequest(token: '');
