@@ -39,6 +39,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     if (isFirstSending) {
       emit(const AuthState.idle());
       try {
+        // ignore: unused_local_variable
         final phoneLoginResponse =
             await authRepository.loginPhone(event.phoneLoginRequest);
         //TODO: save token
@@ -63,6 +64,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   FutureOr<void> _loginViaApple(event, emit) async {
     emit(const AuthState.idle());
     try {
+      // ignore: unused_local_variable
       final appleLoginResponse =
           await authRepository.loginApple(event.appleLoginRequest);
       //TODO: save token
@@ -75,6 +77,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   FutureOr<void> _loginViaMeta(event, emit) async {
     emit(const AuthState.idle());
     try {
+      // ignore: unused_local_variable
       final metaLoginResponse =
           await authRepository.loginMeta(event.metaLoginRequest);
       //TODO: save token
@@ -87,6 +90,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   FutureOr<void> _loginViaVk(event, emit) async {
     emit(const AuthState.idle());
     try {
+      // ignore: unused_local_variable
       final vkLoginResponse =
           await authRepository.loginVk(event.vkLoginRequest);
       //TODO: save token
@@ -99,6 +103,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   FutureOr<void> _loginViaGoogle(event, emit) async {
     emit(const AuthState.idle());
     try {
+      // ignore: unused_local_variable
       final googleLoginResponse =
           await authRepository.loginGoogle(event.googleLoginRequest);
       //TODO: save token
