@@ -35,7 +35,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthEventLogout>(_logout);
   }
 
-  FutureOr<void> _loginViaPhone(event, emit) async {
+  Future<void> _loginViaPhone(AuthEventLoginViaPhone event, Emitter<AuthState> emit) async {
     if (isFirstSending) {
       emit(const AuthState.idle());
       try {
@@ -55,13 +55,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  FutureOr<void> _sendOtp(_, emit) async {
+  Future<void> _sendOtp(_, Emitter<AuthState> emit) async {
     emit(const AuthState.idle());
     //TODO: firebase auth by phone number
     emit(const AuthState.success());
   }
 
-  FutureOr<void> _loginViaApple(event, emit) async {
+  Future<void> _loginViaApple(AuthEventLoginViaApple event, Emitter<AuthState> emit) async {
     emit(const AuthState.idle());
     try {
       // ignore: unused_local_variable
@@ -74,7 +74,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  FutureOr<void> _loginViaMeta(event, emit) async {
+  Future<void> _loginViaMeta(AuthEventLoginViaMeta event, Emitter<AuthState> emit) async {
     emit(const AuthState.idle());
     try {
       // ignore: unused_local_variable
@@ -87,7 +87,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  FutureOr<void> _loginViaVk(event, emit) async {
+  Future<void> _loginViaVk(AuthEventLoginViaVk event, Emitter<AuthState> emit) async {
     emit(const AuthState.idle());
     try {
       // ignore: unused_local_variable
@@ -100,7 +100,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  FutureOr<void> _loginViaGoogle(event, emit) async {
+  Future<void> _loginViaGoogle(AuthEventLoginViaGoogle event, Emitter<AuthState> emit) async {
     emit(const AuthState.idle());
     try {
       // ignore: unused_local_variable
@@ -113,7 +113,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  FutureOr<void> _register(event, emit) async {
+  Future<void> _register(AuthEventRegister event, Emitter<AuthState> emit) async {
     emit(const AuthState.idle());
     try {
       await authRepository.register(event.registerRequest);
@@ -123,7 +123,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  FutureOr<void> _logout(_, emit) async {
+  Future<void> _logout(_, Emitter<AuthState> emit) async {
     emit(const AuthState.idle());
     try {
       await authRepository.logout();
