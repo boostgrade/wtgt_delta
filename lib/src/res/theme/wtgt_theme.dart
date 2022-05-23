@@ -117,6 +117,5 @@ class WtgtInputDecoration {
           fontWeight: FontWeight.w500,
           color: AppColors.onPrimary,
         ),
-        // contentPadding: EdgeInsets.all(16.0),
       );
 }

@@ -43,6 +43,7 @@ class RegisterScreen extends StatelessWidget {
             child: WtgtForm(
               onChanged: (_) {},
               labelText: 'Дата рождения',
+              suffixIcon: const Icon(Icons.calendar_today_outlined),
             ),
           ),
           const Spacer(),
