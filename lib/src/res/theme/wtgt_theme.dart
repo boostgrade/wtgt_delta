@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:where_to_go_today/src/core/ui/res/colors/colors.dart';
 import 'package:where_to_go_today/src/core/ui/res/typography/typography.dart';
 
-
 /// Тема цветовая приложения
 /// [lightTheme] геттер для светлой темы
 class WtgtTheme {
@@ -112,6 +111,8 @@ class WtgtInputDecoration {
         labelStyle: TextStyle(
           fontSize: 12.0,
           fontWeight: FontWeight.w500,
+          color: AppColors.onPrimary,
         ),
+        contentPadding: EdgeInsets.all(16.0),
       );
 }

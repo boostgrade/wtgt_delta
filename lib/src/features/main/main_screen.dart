@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:where_to_go_today/src/features/auth/ui/register/register_screen.dart';
 import 'package:where_to_go_today/src/features/main/main_screen_vm.dart';
 
 /// Глвный экран с табами
@@ -10,9 +11,10 @@ class MainScreen extends StatelessWidget {
   static const double _labelSize = 12.0;
   // TODO(artem-zaitsev): здесь будут храниться экраны, когда появятся
   final List<Widget> _screens = [
-    const Center(
-      child: Text('Screen 1'),
-    ),
+    // const Center(
+    //   child: Text('Screen 1'),
+    // ),
+    const RegisterScreen(),
     const Center(
       child: Text('Screen 1'),
     ),
