@@ -47,29 +47,31 @@ class RegisterScreen extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 24.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                WtgtCheckBox(
-                  onChange: (newValue) {},
-                ),
-                const SizedBox(
-                  width: 24.0,
-                ),
-                const Expanded(
-                  child: Text('Я принимаю пользовательское соглашение'),
-                ),
-              ],
-            ),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              WtgtCheckBox(
+                onChange: (newValue) {},
+              ),
+              const SizedBox(
+                width: 24.0,
+              ),
+              const Expanded(
+                child: Text('Я принимаю пользовательское соглашение'),
+              ),
+            ],
           ),
-          WtgtButton(
-            type: ButtonType.active,
-            label: 'Зарегестрироваться',
-            onPressed: () {},
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 24.0,
+            ),
+            child: WtgtButton(
+              type: ButtonType.active,
+              label: 'Зарегестрироваться',
+              onPressed: () {},
+            ),
           ),
         ],
       ),
