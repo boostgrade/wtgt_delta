@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:where_to_go_today/src/core/ui/res/typography/typography.dart';
 
 class WtgtForm extends StatelessWidget {
   final Function(String) onChanged;
@@ -12,12 +13,14 @@ class WtgtForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      onChanged: onChanged,
-      style: Theme.of(context).textTheme.subtitle1,
-      decoration: InputDecoration(
-        contentPadding: const EdgeInsets.all(16.0),
-        labelText: labelText,
+    return SizedBox(
+      height: 52.0,
+      child: TextFormField(
+        onChanged: onChanged,
+        style: AppTypography.subtitle1,
+        decoration: InputDecoration(
+          labelText: labelText,
+        ),
       ),
     );
   }

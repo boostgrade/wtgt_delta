@@ -16,6 +16,7 @@ class WtgtTheme {
       disabledColor: AppColors.disabled,
       backgroundColor: AppColors.background,
       cardColor: AppColors.card,
+      toggleableActiveColor: AppColors.primary,
       cardTheme: const CardTheme(
         color: AppColors.card,
         shape: RoundedRectangleBorder(
@@ -25,6 +26,9 @@ class WtgtTheme {
         ),
       ),
       inputDecorationTheme: WtgtInputDecoration.lightInputDecorationTheme,
+      checkboxTheme: CheckboxThemeData(
+        checkColor: MaterialStateProperty.all(AppColors.onPrimary),
+      ),
       textSelectionTheme: const TextSelectionThemeData(
         cursorColor: AppColors.focusedBorder,
       ),
@@ -113,6 +117,6 @@ class WtgtInputDecoration {
           fontWeight: FontWeight.w500,
           color: AppColors.onPrimary,
         ),
-        contentPadding: EdgeInsets.all(16.0),
+        // contentPadding: EdgeInsets.all(16.0),
       );
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
+import 'package:where_to_go_today/src/ui/uikit/wtgt_checkbox.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_form.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -27,28 +28,42 @@ class RegisterScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: WtgtForm(
               onChanged: (_) {},
-              labelText: 'Имя',
+              labelText: 'Фамилия',
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: WtgtForm(
               onChanged: (_) {},
-              labelText: 'Имя',
+              labelText: 'E-mail',
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: WtgtForm(
               onChanged: (_) {},
-              labelText: 'Имя',
+              labelText: 'Дата рождения',
             ),
           ),
           const Spacer(),
-          Row(
-            children: [
-              Text('fdjsflkd'),
-            ],
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 24.0),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                WtgtCheckBox(
+                  onChange: (newValue) {},
+                ),
+                const SizedBox(
+                  width: 24.0,
+                ),
+                const Expanded(
+                  child: Text('Я принимаю пользовательское соглашение'),
+                ),
+              ],
+            ),
           ),
           WtgtButton(
             type: ButtonType.active,
