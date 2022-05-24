@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:where_to_go_today/src/core/utils/date_utils.dart' as utils;
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_checkbox.dart';
@@ -30,21 +31,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: WtgtForm(
               onChanged: (_) {},
-              labelText: 'Имя',
+              labelText: AppLocalizations.of(context)!.textFieldHintName,
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: WtgtForm(
               onChanged: (_) {},
-              labelText: 'Фамилия',
+              labelText: AppLocalizations.of(context)!.textFieldHintLastName,
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: WtgtForm(
               onChanged: (_) {},
-              labelText: 'E-mail',
+              labelText: AppLocalizations.of(context)!.textFieldHintEmail,
             ),
           ),
           Padding(
@@ -53,7 +54,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               key: _date == null ? null : Key(_date!),
               value: _date,
               onChanged: (_) {},
-              labelText: 'Дата рождения',
+              labelText: AppLocalizations.of(context)!.textFieldHintBirthdate,
               suffixIcon: InkWell(
                 onTap: _setDate,
                 child: const Icon(Icons.calendar_today_outlined),
@@ -73,8 +74,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
               const SizedBox(
                 width: 24.0,
               ),
-              const Expanded(
-                child: Text('Я принимаю пользовательское соглашение'),
+              Expanded(
+                child: Text(AppLocalizations.of(context)!.acceptUserAgreement),
               ),
             ],
           ),
@@ -84,7 +85,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
             child: WtgtButton(
               type: ButtonType.active,
-              label: 'Зарегестрироваться',
+              label: AppLocalizations.of(context)!.buttonRegistration,
               onPressed: () {},
             ),
           ),

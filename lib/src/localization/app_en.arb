@@ -5,5 +5,11 @@
   },
   "placesTabName": "Places",
   "cardTabName": "My Card",
-  "profileTabName": "Profile"
-}
+  "profileTabName": "Profile",
+  "textFieldHintName": "Name",
+  "textFieldHintLastName": "Last Name",
+  "textFieldHintEmail": "E-mail",
+  "textFieldHintBirthdate": "Date of Birth",
+  "acceptUserAgreement": "I accept the user agreement",
+  "buttonRegistration": "Register"
+  }
