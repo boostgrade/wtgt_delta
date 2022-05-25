@@ -11,5 +11,7 @@
   "textFieldHintEmail": "E-mail",
   "textFieldHintBirthdate": "Date of Birth",
   "acceptUserAgreement": "I accept the user agreement",
-  "buttonRegistration": "Register"
+  "buttonRegistration": "Register",
+  "textFieldErrorEmpty": "This field can not be empty",
+  "textFieldErrorNotMatch": "Illegal symbols"
   }

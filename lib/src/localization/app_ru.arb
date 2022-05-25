@@ -8,5 +8,7 @@
   "textFieldHintEmail": "E-mail",
   "textFieldHintBirthdate": "Дата рождения",
   "acceptUserAgreement": "Я принимаю пользовательское соглашение",
-  "buttonRegistration": "Зарегестрироваться"
+  "buttonRegistration": "Зарегестрироваться",
+  "textFieldErrorEmpty": "Поле не может быть пустым",
+  "textFieldErrorNotMatch": "Недопустимые символы"
 }
