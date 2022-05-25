@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:where_to_go_today/src/core/ui/res/typography/typography.dart';
 import 'package:where_to_go_today/src/core/utils/date_utils.dart' as utils;
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_checkbox.dart';
@@ -93,7 +96,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   width: 24.0,
                 ),
                 Expanded(
-                  child: Text(AppLocalizations.of(context)!.acceptUserAgreement),
+                  child: InkWell(
+                    child: Text(
+                      AppLocalizations.of(context)!.acceptUserAgreement,
+                      style: AppTypography.subtitle1.copyWith(
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
