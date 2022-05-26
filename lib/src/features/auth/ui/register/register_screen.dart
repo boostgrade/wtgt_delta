@@ -72,6 +72,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: WtgtForm(
                 key: _date == null ? null : Key(_date!),
                 value: _date,
+                defaultValue: true,
+                validatorPattern: r'^[0-3]{0,1}[0-9].[0-1]{0,1}[0-9].[0-2][0,9][0-9]{2}$',
                 onChanged: (_) {
                   //TODO(any): обработать нажатие на кнопку
                 },
