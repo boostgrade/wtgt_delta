@@ -17,8 +17,14 @@ class WtgtCheckBox extends StatelessWidget {
       height: 24.0,
       child: Checkbox(
         value: value,
-        onChanged: (vlue)onChange,
+        onChanged: _onChange,
       ),
     );
+  }
+
+  void _onChange(bool? value) {
+    if (value != null) {
+      onChange(value);
+    }
   }
 }
