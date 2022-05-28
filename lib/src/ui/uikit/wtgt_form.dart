@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:where_to_go_today/src/core/extensions/app_localizations_extensions.dart';
 import 'package:where_to_go_today/src/core/ui/res/typography/typography.dart';
 
 class WtgtForm extends StatelessWidget {
@@ -37,7 +37,7 @@ class WtgtForm extends StatelessWidget {
 
   String? _validator(BuildContext context, String? value) {
     if (defaultValue && (value == null || value.isEmpty)) {
-      return AppLocalizations.of(context)!.textFieldErrorEmpty;
+      return AppLocalizationsExtention.tryOf(context).textFieldErrorEmpty;
     }
     if ((validatorPattern ?? '').isEmpty) {
       return null;
@@ -50,6 +50,6 @@ class WtgtForm extends StatelessWidget {
       return null;
     }
 
-    return AppLocalizations.of(context)?.textFieldErrorNotMatch;
+    return AppLocalizationsExtention.tryOf(context).textFieldErrorNotMatch;
   }
 }

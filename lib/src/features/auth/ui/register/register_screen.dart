@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:where_to_go_today/src/core/constants/text_field_regexp.dart';
-import 'package:where_to_go_today/src/core/extentions/date_time_extentions.dart';
+import 'package:where_to_go_today/src/core/extensions/app_localizations_extensions.dart';
+import 'package:where_to_go_today/src/core/extensions/date_time_extensions.dart';
 import 'package:where_to_go_today/src/core/ui/res/typography/typography.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_checkbox.dart';
@@ -40,7 +40,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 onChanged: (_) {
                   //TODO(any): обработать нажатие на кнопку
                 },
-                labelText: AppLocalizations.of(context)!.textFieldHintName,
+                labelText: AppLocalizationsExtention.tryOf(context).textFieldHintName,
               ),
             ),
             Padding(
@@ -51,7 +51,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 onChanged: (_) {
                   //TODO(any): обработать нажатие на кнопку
                 },
-                labelText: AppLocalizations.of(context)!.textFieldHintLastName,
+                labelText: AppLocalizationsExtention.tryOf(context).textFieldHintLastName,
               ),
             ),
             Padding(
@@ -62,7 +62,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 onChanged: (_) {
                   //TODO(any): обработать нажатие на кнопку
                 },
-                labelText: AppLocalizations.of(context)!.textFieldHintEmail,
+                labelText: AppLocalizationsExtention.tryOf(context).textFieldHintEmail,
               ),
             ),
             Padding(
@@ -75,7 +75,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 onChanged: (_) {
                   //TODO(any): обработать нажатие на кнопку
                 },
-                labelText: AppLocalizations.of(context)!.textFieldHintBirthdate,
+                labelText: AppLocalizationsExtention.tryOf(context).textFieldHintBirthdate,
                 suffixIcon: InkWell(
                   onTap: _setDate,
                   child: const Icon(Icons.calendar_today_outlined),
@@ -98,7 +98,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Expanded(
                   child: InkWell(
                     child: Text(
-                      AppLocalizations.of(context)!.acceptUserAgreement,
+                      AppLocalizationsExtention.tryOf(context).acceptUserAgreement,
                       style: AppTypography.subtitle1.copyWith(
                         decoration: TextDecoration.underline,
                       ),
@@ -113,7 +113,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               child: WtgtButton(
                 type: ButtonType.active,
-                label: AppLocalizations.of(context)!.buttonRegistration,
+                label: AppLocalizationsExtention.tryOf(context).buttonRegistration,
                 onPressed: () {},
               ),
             ),
