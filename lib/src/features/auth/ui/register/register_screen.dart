@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:where_to_go_today/src/core/constants/text_field_regexp.dart';
+import 'package:where_to_go_today/src/core/extentions/date_time_extentions.dart';
 import 'package:where_to_go_today/src/core/ui/res/typography/typography.dart';
-import 'package:where_to_go_today/src/core/utils/date_utils.dart' as utils;
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_checkbox.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_form.dart';
@@ -137,7 +137,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     if (date != null) {
       setState(() {
-        _date = utils.getStringDDMMYYYYFromDate(date);
+        _date = date.getStringDDMMYYYY;
       });
     }
   }
