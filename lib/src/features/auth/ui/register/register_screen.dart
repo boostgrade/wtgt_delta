@@ -68,7 +68,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: WtgtForm(
-                key: _date == null ? null : Key(_date!),
+                key: ValueKey(_date),
                 value: _date,
                 defaultValue: true,
                 validatorPattern: TextFieldRegExp.date,
@@ -90,7 +90,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               children: [
                 WtgtCheckBox(
                   value: _checkBoxValue,
-                  onChange: _checkboxOnChange,
+                  onChange: (newValue) => setState(
+                    () => _checkBoxValue = newValue,
+                  ),
                 ),
                 const SizedBox(
                   width: 24.0,
@@ -138,14 +140,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
     if (date != null) {
       setState(() {
         _date = date.getStringDDMMYYYY;
-      });
-    }
-  }
-
-  void _checkboxOnChange(bool? newValue) {
-    if (newValue != null) {
-      setState(() {
-        _checkBoxValue = newValue;
       });
     }
   }
