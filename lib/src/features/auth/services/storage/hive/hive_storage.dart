@@ -38,7 +38,6 @@ class HiveTokenStorage implements ILocalStorage<TokenDTO> {
   }
 
   Future<void> _init() async {
-    await Hive.initFlutter();
     Hive.registerAdapter(TokenDTOAdapter());
     _box = await Hive.openBox<TokenDTO>(_boxName);
   }

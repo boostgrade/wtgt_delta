@@ -2,8 +2,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:where_to_go_today/src/core/services/storage/i_local_storage.dart';
 import 'package:where_to_go_today/src/features/auth/services/storage/hive/hive_storage.dart';
 import 'package:where_to_go_today/src/features/auth/services/storage/hive/token_dto.dart';
+import 'package:where_to_go_today/src/features/auth/services/storage/storage_factory.dart';
 
 void main() async {
+  await StorageFactory.init();
   group('Тесты hive для хранения токена авторизации', () {
     const testToken = TokenDTO(
       refreshToken: '402880824ff933a4014ff9345d7c0002',
