@@ -2,5 +2,13 @@
   "appTitle": "Куда пойти сегодня?",
   "placesTabName": "Заведения",
   "cardTabName": "Моя Карта",
-  "profileTabName": "Профиль"
+  "profileTabName": "Профиль",
+  "textFieldHintName": "Имя",
+  "textFieldHintLastName": "Фамилия",
+  "textFieldHintEmail": "E-mail",
+  "textFieldHintBirthdate": "Дата рождения",
+  "acceptUserAgreement": "Я принимаю пользовательское соглашение",
+  "buttonRegistration": "Зарегестрироваться",
+  "textFieldErrorEmpty": "Поле не может быть пустым",
+  "textFieldErrorNotMatch": "Недопустимые символы"
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:where_to_go_today/src/core/extensions/app_localizations_extensions.dart';
+import 'package:where_to_go_today/src/features/auth/ui/register/register_screen.dart';
 import 'package:where_to_go_today/src/features/main/main_screen_vm.dart';
 
 /// Глвный экран с табами
@@ -10,9 +11,10 @@ class MainScreen extends StatelessWidget {
   static const double _labelSize = 12.0;
   // TODO(artem-zaitsev): здесь будут храниться экраны, когда появятся
   final List<Widget> _screens = [
-    const Center(
-      child: Text('Screen 1'),
-    ),
+    // const Center(
+    //   child: Text('Screen 1'),
+    // ),
+    const RegisterScreen(),
     const Center(
       child: Text('Screen 1'),
     ),
@@ -27,6 +29,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(
       builder: (_) => Scaffold(
+        resizeToAvoidBottomInset: false,
         body: _screens[vm.currentIndex],
         bottomNavigationBar: BottomNavigationBar(
           onTap: vm.tabClicked,
@@ -40,17 +43,17 @@ class MainScreen extends StatelessWidget {
               activeIcon: const Icon(
                 Icons.search,
               ),
-              label: AppLocalizations.of(context)!.placesTabName,
+              label: AppLocalizationsExtention.tryOf(context).placesTabName,
             ),
             BottomNavigationBarItem(
               icon: const Icon(Icons.card_giftcard),
               activeIcon: const Icon(Icons.card_giftcard),
-              label: AppLocalizations.of(context)!.cardTabName,
+              label: AppLocalizationsExtention.tryOf(context).cardTabName,
             ),
             BottomNavigationBarItem(
               icon: const Icon(Icons.account_circle),
               activeIcon: const Icon(Icons.account_circle),
-              label: AppLocalizations.of(context)!.profileTabName,
+              label: AppLocalizationsExtention.tryOf(context).profileTabName,
             ),
           ],
         ),

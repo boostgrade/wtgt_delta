@@ -34,7 +34,11 @@ dependencies:
   dio: ^4.0.1
 
   #navigation
-  routemaster: ^0.9.5
+  routemaster: ^1.0.0
+
+  #localstorage
+  hive: ^2.2.1
+  hive_flutter: ^1.1.0
 
   # testing
   bloc_test: ^8.5.0
