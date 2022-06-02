@@ -49,6 +49,7 @@ app.*.map.json
 
 # freezed generated files
 *.g.dart
+*.freezed.dart
 
 #pubspec lock
-pubspec.lock
+/pubspec.lock
