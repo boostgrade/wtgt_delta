@@ -46,3 +46,9 @@ app.*.map.json
 /android/app/release
 /tokenbox.hive
 /tokenbox.lock
+
+# freezed generated files
+*.g.dart
+
+#pubspec lock
+pubspec.lock

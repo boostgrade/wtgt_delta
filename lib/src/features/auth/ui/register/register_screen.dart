@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:where_to_go_today/src/core/constants/text_field_regexp.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:where_to_go_today/src/core/extensions/app_localizations_extensions.dart';
 import 'package:where_to_go_today/src/core/extensions/date_time_extensions.dart';
 import 'package:where_to_go_today/src/core/ui/res/typography/typography.dart';
+import 'package:where_to_go_today/src/features/auth/ui/register/register_vm.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_button.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_checkbox.dart';
 import 'package:where_to_go_today/src/ui/uikit/wtgt_form.dart';
@@ -15,9 +16,10 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  final RegisterVm registerVm = RegisterVm();
   final _key = GlobalKey<FormState>();
-  String? _date;
   bool _checkBoxValue = false;
+  final _dateFieldController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,52 +36,52 @@ class _RegisterScreenState extends State<RegisterScreen> {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: WtgtForm(
-                defaultValue: true,
-                validatorPattern: TextFieldRegExp.name,
-                onChanged: (_) {
-                  //TODO(any): обработать нажатие на кнопку
+              child: Observer(
+                builder: (_) {
+                  return WtgtForm(
+                    errorText: _getErrorText(registerVm.nameError),
+                    onChanged: (newValue) => registerVm.onNameChanged(newValue),
+                    labelText: AppLocalizationsExtention.tryOf(context).textFieldHintName,
+                  );
                 },
-                labelText: AppLocalizationsExtention.tryOf(context).textFieldHintName,
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: WtgtForm(
-                defaultValue: true,
-                validatorPattern: TextFieldRegExp.name,
-                onChanged: (_) {
-                  //TODO(any): обработать нажатие на кнопку
-                },
-                labelText: AppLocalizationsExtention.tryOf(context).textFieldHintLastName,
-              ),
+              child: Observer(builder: (_) {
+                return WtgtForm(
+                  errorText: _getErrorText(registerVm.lastNameError),
+                  onChanged: (newValue) => registerVm.onLastNameChanged(newValue),
+                  labelText: AppLocalizationsExtention.tryOf(context).textFieldHintLastName,
+                );
+              }),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: WtgtForm(
-                defaultValue: true,
-                validatorPattern: TextFieldRegExp.email,
-                onChanged: (_) {
-                  //TODO(any): обработать нажатие на кнопку
-                },
-                labelText: AppLocalizationsExtention.tryOf(context).textFieldHintEmail,
-              ),
+              child: Observer(builder: (_) {
+                return WtgtForm(
+                  errorText: _getErrorText(registerVm.emailError),
+                  onChanged: (newValue) => registerVm.onEmailChanged(newValue),
+                  labelText: AppLocalizationsExtention.tryOf(context).textFieldHintEmail,
+                );
+              }),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: WtgtForm(
-                key: ValueKey(_date),
-                value: _date,
-                defaultValue: true,
-                validatorPattern: TextFieldRegExp.date,
-                onChanged: (_) {
-                  //TODO(any): обработать нажатие на кнопку
+              child: Observer(
+                builder: (_) {
+                  return WtgtForm(
+                    autofocus: true,
+                    controller: _dateFieldController,
+                    errorText: _getErrorText(registerVm.dateError),
+                    onChanged: (newValue) => registerVm.onBirthdateChanged(newValue),
+                    labelText: AppLocalizationsExtention.tryOf(context).textFieldHintBirthdate,
+                    suffixIcon: InkWell(
+                      onTap: _setDate,
+                      child: const Icon(Icons.calendar_today_outlined),
+                    ),
+                  );
                 },
-                labelText: AppLocalizationsExtention.tryOf(context).textFieldHintBirthdate,
-                suffixIcon: InkWell(
-                  onTap: _setDate,
-                  child: const Icon(Icons.calendar_today_outlined),
-                ),
               ),
             ),
             const Spacer(),
@@ -125,6 +127,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
+  String? _getErrorText(TextFieldValidationStatus status) {
+    switch (status) {
+      case TextFieldValidationStatus.empty:
+        return AppLocalizationsExtention.tryOf(context).textFieldErrorEmpty;
+      case TextFieldValidationStatus.illegal:
+        return AppLocalizationsExtention.tryOf(context).textFieldErrorNotMatch;
+      case TextFieldValidationStatus.noError:
+        return null;
+    }
+  }
+
   Future<void> _setDate() async {
     final date = await showDatePicker(
       context: context,
@@ -138,9 +151,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
 
     if (date != null) {
-      setState(() {
-        _date = date.getStringDDMMYYYY;
-      });
+      registerVm.onBirthdateChanged(date.getStringDDMMYYYY);
+      _dateFieldController.text = registerVm.date;
     }
   }
 }
