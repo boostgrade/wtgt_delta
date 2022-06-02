@@ -9,6 +9,7 @@ enum TextFieldValidationStatus {
   empty,
   illegal,
   noError,
+  untracked,
 }
 
 class RegisterVm = _RegisterVm with _$RegisterVm;
@@ -17,13 +18,24 @@ abstract class _RegisterVm with Store {
   @readonly
   String _date = '';
   @readonly
-  TextFieldValidationStatus _nameError = TextFieldValidationStatus.noError;
+  bool _checkBoxValue = false;
   @readonly
-  TextFieldValidationStatus _lastNameError = TextFieldValidationStatus.noError;
+  TextFieldValidationStatus _nameError = TextFieldValidationStatus.untracked;
   @readonly
-  TextFieldValidationStatus _emailError = TextFieldValidationStatus.noError;
+  TextFieldValidationStatus _lastNameError = TextFieldValidationStatus.untracked;
   @readonly
-  TextFieldValidationStatus _dateError = TextFieldValidationStatus.noError;
+  TextFieldValidationStatus _emailError = TextFieldValidationStatus.untracked;
+  @readonly
+  TextFieldValidationStatus _dateError = TextFieldValidationStatus.untracked;
+  @readonly
+  bool _isLoading = false;
+  @computed
+  bool get buttonEnabled =>
+      _nameError == TextFieldValidationStatus.noError &&
+      _dateError == TextFieldValidationStatus.noError &&
+      _lastNameError == TextFieldValidationStatus.noError &&
+      _emailError == TextFieldValidationStatus.noError &&
+      _checkBoxValue;
 
   @action
   void onNameChanged(String text) {
@@ -64,7 +76,9 @@ abstract class _RegisterVm with Store {
   }
 
   @action
-  void acceptAgreement(bool value) {}
+  void acceptAgreement(bool value) {
+    _checkBoxValue = value;
+  }
 
   TextFieldValidationStatus _validateTextField({
     required String input,

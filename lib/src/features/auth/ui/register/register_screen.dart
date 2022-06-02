@@ -90,12 +90,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                WtgtCheckBox(
-                  value: _checkBoxValue,
-                  onChange: (newValue) => setState(
-                    () => _checkBoxValue = newValue,
-                  ),
-                ),
+                Observer(builder: (_) {
+                  return WtgtCheckBox(
+                    value: registerVm.checkBoxValue,
+                    onChange: (newValue) => registerVm.acceptAgreement(newValue),
+                  );
+                }),
                 const SizedBox(
                   width: 24.0,
                 ),
@@ -115,10 +115,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
               padding: const EdgeInsets.symmetric(
                 vertical: 24.0,
               ),
-              child: WtgtButton(
-                type: ButtonType.active,
-                label: AppLocalizationsExtention.tryOf(context).buttonRegistration,
-                onPressed: () {},
+              child: Observer(
+                builder: (_) {
+                  return WtgtButton(
+                    type: registerVm.isLoading ? ButtonType.loading : ButtonType.active,
+                    label: AppLocalizationsExtention.tryOf(context).buttonRegistration,
+                    onPressed: registerVm.buttonEnabled ? () {} : null,
+                  );
+                },
               ),
             ),
           ],
