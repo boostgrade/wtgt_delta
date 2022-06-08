@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:where_to_go_today/src/features/auth/authapi/models/user.dart';
 
 part 'user_response.g.dart';
 
@@ -18,5 +19,16 @@ class UserResponse {
     required this.birthDate,
   });
 
-  factory UserResponse.fromJson(Map<String, dynamic> json) => _$UserResponseFromJson(json);
+  factory UserResponse.fromJson(Map<String, dynamic> json) =>
+      _$UserResponseFromJson(json);
+
+  static User toDomain(UserResponse userResponse) {
+    return User(
+      id: userResponse.id,
+      name: userResponse.name,
+      lastName: userResponse.lastName,
+      phone: userResponse.phone,
+      birthDate: DateTime.parse(userResponse.birthDate),
+    );
+  }
 }

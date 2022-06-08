@@ -10,7 +10,7 @@ import 'package:where_to_go_today/src/features/auth/authapi/models/response/logi
 
 part 'auth_api.g.dart';
 
-@RestApi(baseUrl: 'https://stoplight.io/mocks/softech/wtgt/75539')
+@RestApi()
 abstract class AuthApi {
   factory AuthApi(Dio dio, {String baseUrl}) = _AuthApi;
 

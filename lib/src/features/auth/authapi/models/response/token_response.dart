@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:where_to_go_today/src/features/auth/authapi/models/token.dart';
 
 part 'token_response.g.dart';
 
@@ -14,4 +15,11 @@ class TokenResponse {
 
   factory TokenResponse.fromJson(Map<String, dynamic> json) =>
       _$TokenResponseFromJson(json);
+
+  static Token toDomain(TokenResponse tokenResponse) {
+    return Token(
+      token: tokenResponse.token,
+      refreshToken: tokenResponse.refreshToken,
+    );
+  }
 }
